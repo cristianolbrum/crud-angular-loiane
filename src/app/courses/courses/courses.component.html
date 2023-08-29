@@ -18,14 +18,16 @@
   <!-- Category Column -->
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> Categoria </th>
-    <td mat-cell *matCellDef="let course"> {{course.category}} </td>
+    <td mat-cell *matCellDef="let course"> {{course.category}}
+      <mat-icon aria-hidden="false" aria-label="Categoria do Curso">{{course.category | category}}</mat-icon>
+    </td>
   </ng-container>
 
 <!-- Actions Column -->
 <ng-container matColumnDef="actions">
   <mat-header-cell *matHeaderCellDef>
     <button mat-icon-button color="primary" aria-label="Adicionar um curso" (click)= onAdd()>
-      <mat-icon >add</mat-icon>
+      <mat-icon>add</mat-icon>
   </button>
   </mat-header-cell>
 
