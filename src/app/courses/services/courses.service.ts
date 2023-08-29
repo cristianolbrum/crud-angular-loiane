@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../model/course';
 import {HttpClient} from '@angular/common/http';
-import { delay, tap } from 'rxjs';
+import { delay, first, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,13 @@ private readonly API = 'api/courses';
   list(){
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
-      delay(5000),
-      tap(courses => console.log(courses))
+      first(),
+      tap(courses=>console.log(courses))
     );
   }
+
+save(record: Course){
+  return this.httpClient.post<Course>(this.API, record).pipe(first());
+}
+
 }
