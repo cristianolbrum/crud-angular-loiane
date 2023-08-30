@@ -12,6 +12,10 @@ private readonly API = 'api/courses';
 
   constructor(private httpClient: HttpClient) { }
 
+  loadById(id: string){
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
   list(){
     return this.httpClient.get<Course[]>(this.API)
     .pipe(

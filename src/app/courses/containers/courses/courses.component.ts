@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { catchError, Observable, of } from 'rxjs';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+
 import { Course } from '../../model/course';
 import { CoursesService } from '../../services/courses.service';
 
@@ -45,5 +46,9 @@ courses$: Observable<Course[]>;
 
   onAdd(){
     this.router.navigate(['new'], {relativeTo:this.route});
+  }
+
+  onEdit(course : Course){
+    this.router.navigate(['edit', course._id], {relativeTo:this.route});
   }
 }
