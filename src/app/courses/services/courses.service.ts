@@ -40,4 +40,8 @@ private create(record: Partial<Course>){
   return this.httpClient.post<Course>(this.API, record).pipe(first());
 }
 
+public remove(id: string){
+  return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+}
+
 }
