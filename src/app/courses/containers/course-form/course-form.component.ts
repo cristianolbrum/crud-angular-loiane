@@ -58,6 +58,7 @@ ngOnInit(): void {
     name: course.name,
     category: course.category
   })
+  console.log(course)
 }
 
 getErrorMessage(fieldName : string){
